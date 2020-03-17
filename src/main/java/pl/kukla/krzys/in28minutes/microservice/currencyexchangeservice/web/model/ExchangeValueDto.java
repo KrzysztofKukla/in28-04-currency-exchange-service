@@ -21,7 +21,8 @@ import java.util.UUID;
 @Builder
 public class ExchangeValueDto {
 
-    private Long id;
+    @Null
+    private UUID id;
 
     @NotBlank
     private String from;

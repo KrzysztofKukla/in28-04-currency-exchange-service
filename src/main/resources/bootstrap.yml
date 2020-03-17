@@ -1,10 +1,17 @@
 server:
   port: 8000
 
+logging:
+  level:
+    pl:
+      kukla:
+        krzys: debug
+
 spring:
   application:
     name: 04-currency-exchange-service
   cloud:
     config:
       uri: http://localhost:8888
-
+  jpa:
+    show-sql: true
