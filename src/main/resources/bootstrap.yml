@@ -1,0 +1,10 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: 04-currency-exchange-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+
