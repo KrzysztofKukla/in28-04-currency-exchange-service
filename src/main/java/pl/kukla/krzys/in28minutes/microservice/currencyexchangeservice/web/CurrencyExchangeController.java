@@ -3,7 +3,6 @@ package pl.kukla.krzys.in28minutes.microservice.currencyexchangeservice.web;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,11 +22,12 @@ public class CurrencyExchangeController {
     private final Environment environment;
     private final ExchangeValueService exchangeValueService;
 
-    @GetMapping("/{from}/to/{to}")
-    public ResponseEntity<ExchangeValueDto> retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
+    @GetMapping("/from/{from}/to/{to}")
+    public ExchangeValueDto retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
         log.debug("server port=> " + environment.getProperty("server.port"));
-        ExchangeValueDto exchangeValueDto = exchangeValueService.findByFromAndTo(from, to);
-        return ResponseEntity.ok(exchangeValueDto);
+        log.debug("Calling to currency-exchange service");
+        return exchangeValueService.findByFromAndTo(from, to);
+//        return ResponseEntity.ok(exchangeValueDto);
     }
 
 }
