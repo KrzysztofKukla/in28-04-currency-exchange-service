@@ -25,7 +25,6 @@ public class CurrencyExchangeController {
     @GetMapping("/from/{from}/to/{to}")
     public ExchangeValueDto retrieveExchangeValue(@PathVariable String from, @PathVariable String to) {
         log.debug("server port=> " + environment.getProperty("server.port"));
-        log.debug("Calling to currency-exchange service");
         return exchangeValueService.findByFromAndTo(from, to);
 //        return ResponseEntity.ok(exchangeValueDto);
     }
