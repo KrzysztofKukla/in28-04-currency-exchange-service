@@ -18,6 +18,7 @@ spring:
 
 eureka:
   client:
-    service-url:
-      #      it allows to register this microservice to eureka naming server
-      default-zone: http://localhost:8761/eureka
+    serviceUrl:
+      # it allows to register this microservice to eureka naming server
+      defaultZone: http://localhost:8761/eureka
+
